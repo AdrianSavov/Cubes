@@ -5,16 +5,15 @@ const PORT = 5000;
 const expressConfig = require('./config/expressConfig');
 const handlebarsConfig = require('./config/handlebarsConfig');
 
+const homeController = require('./controllers/homeController');
+
+
 expressConfig(app);
 handlebarsConfig(app);
 
-app.use('/', (req, res) => {
-    res.render('index')
-});
+app.use(homeController);
 
-// app.use('/about', (req, res) => {
-//     res.render('about')
-// });
+
 
 app.listen(PORT, () => console.log('Server is listening...'))
 
