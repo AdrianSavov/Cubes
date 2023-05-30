@@ -7,14 +7,22 @@ router.get('/create', (req, res) => {
 });
 
 router.post('/create', (req, res) => {
-    const { name, description, imageURL, diffLevel } = req.body;
+    const {
+        name,
+        description,
+        imageUrl,
+        difficultyLevel,
+    } = req.body;
+
     cubeManager.create(
         name,
         description,
-        imageURL,
-        diffLevel,
-    )
+        imageUrl,
+        difficultyLevel,
+    );
+
     res.redirect('/')
+    
 });
 
 module.exports = router;

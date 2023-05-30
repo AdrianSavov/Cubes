@@ -1,16 +1,18 @@
 const cubes = [];
+const uniqid = require('uniqid');
 
 exports.getAll = () => cubes.slice();
-exports.create = (name, description, imageURL, diffLevel) => {
+exports.create = (name, description, imageUrl, difficultyLevel) => {
 
     const newCube =
     {
         name,
         description,
-        imageURL,
-        diffLevel,
-        id: Math.random()
+        imageUrl,
+        difficultyLevel,
+        id: uniqid(),
     }
     cubes.push(newCube);
+
     return newCube;
 }
