@@ -10,9 +10,9 @@ router.get('/about', (req, res) => {
     res.render('about')
 });
 
-// router.get('*', (req, res) => {
-//     res.render('404')
-// });
+router.get('/404', (req, res) => {
+    res.render('404')
+});
 
 
 
