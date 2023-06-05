@@ -7,16 +7,15 @@ const handlebarsConfig = require('./config/handlebarsConfig');
 const dbConnect = require('./config/mongooseConfig');
 const routes = require('./routes');
 
-app.use(routes)
-
-dbConnect()
-    .then(() => console.log('DB connected successfuly'))
-    .catch(err => {
-        console.log('DB error:', err);
-    })
-
 expressConfig(app);
 handlebarsConfig(app);
 
+dbConnect()
+.then(() => console.log('DB connected successfuly'))
+.catch(err => {
+    console.log('DB error:', err);
+})
+
+app.use(routes)
 app.listen(PORT, () => console.log('Server is listening...'))
 
