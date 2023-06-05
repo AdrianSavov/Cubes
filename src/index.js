@@ -4,22 +4,19 @@ const PORT = 5000;
 
 const expressConfig = require('./config/expressConfig');
 const handlebarsConfig = require('./config/handlebarsConfig');
+const dbConnect = require('./config/mongooseConfig');
+const routes = require('./routes');
 
-const homeController = require('./controllers/homeController');
-const cubeController = require('./controllers/cubeController');
+app.use(routes)
 
+dbConnect()
+    .then(() => console.log('DB connected successfuly'))
+    .catch(err => {
+        console.log('DB error:', err);
+    })
 
 expressConfig(app);
 handlebarsConfig(app);
-
-app.use(homeController);
-app.use('/cubes', cubeController);
-app.get('*', (req,res) => {
-    res.redirect('/404')
-})
-
-
-
 
 app.listen(PORT, () => console.log('Server is listening...'))
 
