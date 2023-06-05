@@ -15,6 +15,7 @@ exports.getAll = async (search, from, to) => {
     }
     return result;
 }
+
 exports.getOne = (cubeId) => Cube.findById(cubeId);
 exports.create = async (name, description, imageUrl, difficultyLevel) => {
 
@@ -28,4 +29,7 @@ exports.create = async (name, description, imageUrl, difficultyLevel) => {
     await newCube.save();
 
     return newCube;
+}
+exports.attachAccessory = async (cubeId, accessory) => {
+   return Cube.findByIdAndUpdate(cubeId, {$push: {accessories: accessory}})
 }

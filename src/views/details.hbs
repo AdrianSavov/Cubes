@@ -8,6 +8,7 @@
     <a class="btn" href="/cubes/{{cube._id}}/accessories/attach">Attach</a>
   </div>
   <h2>Accessories</h2>
+  {{#each cubeAccessories}}
   <div class="accessories">
     <div class="accessory">
       <img src="https://images-na.ssl-images-amazon.com/images/I/61J8UP8pySL._SX425_.jpg" alt="stickerName">
@@ -23,6 +24,7 @@
       <img src="https://images-na.ssl-images-amazon.com/images/I/61J8UP8pySL._SX425_.jpg" alt="stickerName">
       <h3>Accessory Name</h3>
       <p>Accessory Description</p>
+      {{/each}}
     </div>
     <h3 class="italic">This cube has no accessories yet...</h3>
   </div>
