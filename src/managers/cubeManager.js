@@ -17,6 +17,7 @@ exports.getAll = async (search, from, to) => {
 }
 
 exports.getOne = (cubeId) => Cube.findById(cubeId);
+exports.getOneWithAccessories = (cubeId) => Cube.findById(cubeId).populate('accessories');
 exports.create = async (name, description, imageUrl, difficultyLevel) => {
 
     const newCube = new Cube({
